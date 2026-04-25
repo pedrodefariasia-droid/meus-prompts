@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Meus Prompts</title>
+  <style>
+    body {
+      font-family: Arial;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+      background: #111;
+    }
+
+    .card {
+      width: 200px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      width: 100%;
+      opacity: 0;
+      padding: 10px;
+      font-size: 12px;
+      transition: 0.3s;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .card:hover .overlay {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card" onclick="copyText(this)">
+  <img src="https://via.placeholder.com/200">
+  <div class="overlay">
+    foto profissional, ultra realista, iluminação suave, lente 50mm, alta definição
+  </div>
+</div>
+
+<script>
+function copyText(el) {
+  const text = el.querySelector('.overlay').innerText;
+  navigator.clipboard.writeText(text);
+  alert("Prompt copiado!");
+}
+</script>
+
+</body>
+</html>
